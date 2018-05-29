@@ -1,0 +1,462 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="apple-touch-icon" href="./static/assets/assets/img/apple-icon.png">
+        <link rel="icon" href="./static/assets/assets/img/favicon.png">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css"> -->
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script async src="//code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<title>Admin Dashboard</title>
+        <!--     Fonts and icons     -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+        <!-- Documentation extras -->
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <style>
+            @import url('./static/assets/assets/assets-for-demo/demo.css');
+            @import url('./static/assets/assets/css/material-dashboard.css');
+            img:hover{
+            transform: scale(1.5);
+            z-index: 999;
+            }
+        </style>
+    </head>
+    <body>
+
+            <div class="wrapper">
+                    <div class="sidebar" data-color="purple" data-background-color="white" data-image="./static/assets/assets/img/sidebar-1.jpg">
+                        <!--
+                    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+            
+                    Tip 2: you can also add an image using data-image tag
+                -->
+                        <div class="logo">
+                            <a href="#" class="simple-text logo-normal">
+                                Admin Dashboard
+                            </a>
+                        </div>
+                        <div class="sidebar-wrapper">
+                            <ul class="nav">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/dashboard">
+                                        <i class="material-icons">dashboard</i>
+                                        <p>Pending Users</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/acceptedUsers">
+                                        <i class="material-icons">person</i>
+                                        <p>Accepted Users</p>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="main-panel">
+                        <!-- Navbar -->
+                        <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+                            <div class="container-fluid">
+                                <div class="navbar-wrapper">
+                                    <a class="navbar-brand">User Profile</a>
+                                </div>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="navbar-toggler-icon icon-bar"></span>
+                                    <span class="navbar-toggler-icon icon-bar"></span>
+                                    <span class="navbar-toggler-icon icon-bar"></span>
+                                </button>
+                                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                                   
+                                    </form>
+                                    <ul class="navbar-nav">
+                                        
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons">person</i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                                <a class="dropdown-item" href="#">Settings</a>
+                                                <a class="dropdown-item" href="#">Logout</a>
+                                               
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                        <div class="content">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12" id="formConfirmation">
+                                    </div>
+                                    
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header card-header-primary">
+                                                <h4 class="card-title">Confirm User</h4>
+                                                <p class="card-category">Complete the user informations</p>
+                                            </div>
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="bmd-label-floating">Hash</label>
+                                                                <input type="text" class="form-control" disabled id="hash"> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3" id="search">
+                                                            <div class="form-group ui-widget">
+                                                                <label class="bmd-label-floating">Search</label>
+                                                                    <input id="tags" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="bmd-label-floating">First Name</label>
+                                                                <input type="text" class="form-control" id="firstName">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="bmd-label-floating">Last Name</label>
+                                                                <input type="text" class="form-control" id="lastName">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="bmd-label-floating">CIN</label>
+                                                                <input type="text" class="form-control" id="cin">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="bmd-label-floating">Street</label>
+                                                                <input type="text" class="form-control" id="street">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group">
+                                                                <label class="bmd-label-floating">Birth Date</label>
+                                                                <input type="text" class="form-control" id="bDate">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="bmd-label-floating">Province</label>
+                                                                <input type="text" class="form-control" id="province">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="bmd-label-floating">Postal Code</label>
+                                                                <input type="text" class="form-control" id="codePostal">
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                   
+                                                    <button type="button" class="btn btn-primary pull-right" onclick="checkCin()" id="checkBtn" disabled style="cursor: not-allowed">Check</button>
+                                                    <button type="button" class="btn btn-success pull-left" onclick="accept()" id="acceptBtn" disabled  style="cursor: not-allowed">Accept</button>
+                                                    <button type="button" class="btn btn-danger pull-left" onclick="showModal()" id="rejectBtn" disabled  style="cursor: not-allowed">Reject</button>
+                                                    <div class="clearfix"></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                             
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+       <!-- Modal -->
+<div id="myModalReject" class="modal">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">User Rejected</h4>
+        </div>
+        <div class="modal-body">
+          <p>Cause</p><br>
+          <form >
+          <input type="text" class="form-control" id="rejectionText">
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="saveRejection()">Send</button> 
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="$('#myModalReject').hide()">Close</button>
+        </div>
+      </div>
+  
+    </div>
+    
+  </div>
+  
+<script>    
+function showModal()
+{
+    $("#myModalReject").show();
+}
+var url =  window.location.href;
+var pending = url.substr(url.lastIndexOf("=")+1);
+var elements = url.substr(url.lastIndexOf("?")+1);
+elements = elements.split('=')[1];
+var element = elements.split('&')[0];
+var folder = "accepted";
+
+if(pending =="true")
+{
+    folder = "pending";
+}
+else
+{
+    document.getElementById("checkBtn").style.display ="none";
+    document.getElementById("acceptBtn").style.display ="none";
+    document.getElementById("rejectBtn").style.display ="none";
+    var hash = document.getElementById("hash").value;
+    console.log("hash" + hash);
+    $.ajax({
+                url: '/api/getSpecifiedUser',
+                type: 'post',
+                dataType: "json",
+                data: JSON.stringify({"hash":element}),
+                contentType: "application/json",
+               
+                complete: function() {
+                  //called when complete
+                  console.log('process complete');
+                },
+
+                success: function(data) {
+                  console.log(data);
+                  if(data.code == 0)
+                  {
+                    document.getElementById("cin").value = data.cin;
+                    document.getElementById("firstName").value = data.fname;
+                    document.getElementById("lastName").value = data.lname;
+                    document.getElementById("bDate").value = data.dateOfBirth;
+                    document.getElementById("codePostal").value = data.postalCode;
+                    document.getElementById("province").value = data.province;
+                    document.getElementById("street").value = data.street;
+                    $("#search").hide();
+                   
+                  }
+                  console.log('process sucess');
+                 
+               },
+
+                error: function() {
+                  console.log('process error');
+                },
+              });
+}
+console.log(elements);
+document.getElementById("hash").value = element;    
+$("#formConfirmation").empty();
+for(var j=0 ; j < 3 ; j++)
+{
+    var src = "/static/uploads/"+folder+"/"+element+"/"+(j+1)+".png";
+    $("#formConfirmation").append("<img src='"+src+"'" +  "class='col-md-4'" +">");
+}
+
+      
+        
+function checkCin()
+{
+    var cin = $('#cin').val();
+    $.ajax({
+                url: '/api/checkCin',
+                type: 'post',
+                dataType: "json",
+                data: JSON.stringify({"cin":cin}),
+                contentType: "application/json",
+               
+                complete: function() {
+                  //called when complete
+                  console.log('process complete');
+                },
+
+                success: function(data) {
+                  console.log(data);
+                  console.log('process sucess');
+                  if(!(data.result))
+                  {
+                      //user does not exist
+                      document.getElementById("acceptBtn").disabled = false;
+                      document.getElementById("rejectBtn").disabled = false;
+                      document.getElementById("acceptBtn").style.cursor = "pointer";
+                      document.getElementById("rejectBtn").style.cursor = "pointer";
+                  }
+                  else
+                  {
+                        document.getElementById("rejectBtn").disabled = false;
+                        document.getElementById("rejectBtn").style.cursor = "pointer";
+
+                    }
+               },
+
+                error: function() {
+                  console.log('process error');
+                },
+              });
+}
+
+
+function accept()
+    {
+        var cin = $('#cin').val();
+        var hash = $('#hash').val();
+        var fname = $('#firstName').val();
+        var lname = $('#lastName').val();
+        var street = $('#street').val();
+        var dateOfBirth = $('#bDate').val();
+        var province = $('#province').val();
+        var postalCode = $('#codePostal').val();
+        var myjson ={
+                        "cin": cin,
+                        "fname": fname,
+                        "lname": lname,
+                        "hash": hash,
+                        "dateOfBirth": dateOfBirth,
+                        "street": street,
+                        "province": province,
+                        "postalCode": postalCode
+                    }
+        
+        $.ajax({
+                url: '/api/insertUser',
+                type: 'post',
+                dataType: "json",
+                data: JSON.stringify(myjson),
+                contentType: "application/json",
+               
+                complete: function() {
+                  //called when complete
+                  console.log('process complete');
+                },
+
+                success: function(data) {
+                  console.log(data);
+                  console.log('process sucess');
+                  window.location.href = "http://localhost:2721/acceptedUsers"
+               },
+
+                error: function() {
+                  console.log('process error');
+                },
+              });
+    }
+
+
+function saveRejection()
+    {
+        var hash = $('#hash').val();
+        var rejectionText = $('#rejectionText').val();
+       
+        $.ajax({
+                url: '/api/saveRejection',
+                type: 'post',
+                dataType: "json",
+                data: JSON.stringify({"hash": hash , "rejectionText":rejectionText}),
+                contentType: "application/json",
+               
+                complete: function() {
+                  //called when complete
+                  console.log('process complete');
+                },
+
+                success: function(data) {
+                  console.log(data);
+                  console.log('process sucess');
+               },
+
+                error: function() {
+                  console.log('process error');
+                },
+              });
+    }
+
+</script>
+
+       <script src="/static/assets/assets/js/core/jquery.min.js"></script>
+        <script src="./static/assets/assets/js/core/popper.min.js"></script>
+        <script src="./static/assets/assets/js/bootstrap-material-design.js"></script>
+        <script src="./static/assets/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->
+        <script src="./static/assets/assets/js/plugins/chartist.min.js"></script>
+        <!-- Library for adding dinamically elements -->
+        <script src="./static/assets/assets/js/plugins/arrive.min.js" type="text/javascript"></script>
+        <!--  Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/    -->
+        <script src="./static/assets/assets/js/plugins/bootstrap-notify.js"></script>
+        <!-- Material Dashboard Core initialisations of plugins and Bootstrap Material Design Library -->
+        <script src="./static/assets/assets/js/material-dashboard.js?v=2.0.0"></script>
+        <!-- demo init -->
+        <script src="./static/assets/assets/js/plugins/demo.js"></script>
+        <script>
+            $( function() {
+
+            $.ajax({
+                url: '/api/getUsers',
+                type: 'get',
+                success: function(response) {
+                    var data = response;          
+              $( "#tags" ).autocomplete({
+            minLength: 2,
+            source: function (request, response) {
+            response($.map(data, function (value, key) {
+                return {
+                    label: value.firstName+ ' ' + value.lastName,
+                    value: value.cin
+                }
+            }));
+        
+            },
+            select: function(event, ui) {
+            // place the person.given_name value into the textfield called 'select_origin'...
+            var full = ui.item.label;
+            var ln =  full.substr(full.lastIndexOf(" ")+1);
+            var fn = full.substr(0,full.lastIndexOf(" ")+1)
+            $('#lastName').val(ln);
+            $('#firstName').val(fn);
+            $('#cin').val(ui.item.value);
+            document.getElementById("checkBtn").disabled = false;
+            document.getElementById("checkBtn").style.cursor = "pointer";
+            //console.log(ui);
+            }
+            });
+            }
+            });
+          
+            } );
+            
+             
+</script>
+    </body>
+</html>

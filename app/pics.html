@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Demo: Take a Selfie With JavaScript</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+    @import url('/static/assets/css/styles.css');
+</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    
+
+</head>
+<body>
+   <!-- Modal -->
+   <div id="myModalReject" class="modal fade" role="dialog" style="z-index:999">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">User Rejected</h4>
+          </div>
+          <div class="modal-body">
+            <p>Cause</p><br>
+            <form >
+            <input type="text" class="form-control">
+          </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" >Send</button> 
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    
+      </div>
+      
+    </div>
+
+    <!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="$('#myModal').hide()">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+<center>
+    <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
+    <p id="error-message"></p>
+</center>
+
+<form class="row">
+<div class="col-md-4">
+<div class="container1">
+  <div class="app">
+    <video id="camera-stream1"></video>
+    <img id="snap1">
+    <div class="controls">
+      <a href="#" id="delete-photo1" title="Delete Photo" class="disabled"><i class="material-icons">cached</i></a>
+      <a href="#" id="take-photo1" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+    </div>
+    <canvas id="can1"></canvas>
+  </div>
+  </div>
+  <h3>Scan your Face</h3>
+
+</div>
+
+<div class="col-md-4">
+    <div class="container1">
+      <div class="app">
+        <video id="camera-stream2"></video>
+        <img id="snap2">
+        <div class="controls">
+          <a href="#" id="delete-photo2" title="Delete Photo" class="disabled"><i class="material-icons">cached</i></a>
+          <a href="#" id="take-photo2" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+        </div>
+        <canvas id="can2"></canvas>
+      </div>
+      </div>
+      <h3>Scan your front side of your CIN</h3>
+
+</div>
+    <div class="col-md-4">
+        <div class="container1">
+          <div class="app">
+            <video id="camera-stream3"></video>
+            <img id="snap3">
+            <div class="controls">
+              <a href="#" id="delete-photo3" title="Delete Photo" class="disabled"><i class="material-icons">cached</i></a>
+              <a href="#" id="take-photo3" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+            </div>
+        
+            <canvas id="can3"></canvas>
+          </div>
+          </div>
+          <h3>Scan your back side of your CIN</h3>
+    </div>
+
+        </form>
+
+<center>
+        <input type="button" value="submit" onclick="showModal()" class="btn btn-info" id="submitBtn"><br>
+    OR<br>
+
+      <input type="text" size="50" placeholder="place your hash to skip the identification" style="text-align: center"> 
+    </center>
+    <script src="/static/assets/js/script.js"></script>
+<script>
+  function showModal()
+{
+    console.log("hey");
+    $("#myModal").show();
+    console.log("hello");
+
+
+}
+</script>
+
+      
+</body>
+
+</html>

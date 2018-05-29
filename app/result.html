@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>result</title>
+</head>
+<body>
+    <center>
+    <h1>
+        your application is curently pending , please keep this secret hash
+    </h1>
+    <br>
+    <h2 id="hash"></h2>
+    <br>
+    <img src="/static/assets/img/2.jpg" style="width:200px;height:200px">
+    </center>
+    <script>
+    var url = window.location.href;
+    document.getElementById("hash").innerHTML = url.substr(url.lastIndexOf("=")+1);
+    
+    </script>
+</body>
+</html>

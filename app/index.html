@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Step progress bar - css</title>
+    <meta chartset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+
+            @import url('/static/assets/css/main.css');
+            @import url('/static/assets/css/styles.css'); 
+
+            
+        </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="container1">
+        <ul class="progressbar">
+            <li class="active" id="wlcm">Welcome</li>
+            <li id="id">Identification</li>
+            <li id="reg">Registration</li>
+            <li id="vote">Vote</li>
+            <li id="cast">Cast</li>
+            <li id="confirm">Confirmation</li>
+            
+        </ul>
+       
+    </div>
+    <br>
+    <div class="container">
+    <center>
+        <div id="contenu">
+            
+        </div>
+    </center>
+    <div class="right">
+    <button id="back" class="btn btn-danger" onclick="back()">Back</button>
+    </div>
+    <div class="left">
+    <button id="next" class="btn btn-success" onclick="next()">Next</button>
+    </div>
+    </div>
+
+    <script>
+        var wlcm = document.getElementById("wlcm");
+        var wlcmContenu = 'Weclome to our website<br>you will need a CIN card to vote<br><img src="/static/assets/img/2.jpg" style="width:200px;height:200px">'
+        var id = document.getElementById("id");
+        var reg = document.getElementById("reg");
+        var vote = document.getElementById("vote");
+        var cast = document.getElementById("cast");
+        var confirm = document.getElementById("confirm");
+        var contenu = document.getElementById("contenu")
+        var i=0;
+        contenu.innerHTML = wlcmContenu;
+        var backBtn = document.getElementById("back");
+        var nextBtn = document.getElementById("next");
+        backBtn.style.display = "none";
+        
+        function next(){
+            i++;
+            switch(i)
+            {
+                case 1: id.classList.add("active");
+                        document.getElementById("contenu").style.display = "none";
+                        document.getElementById("pics").style.display = "inline";
+                        break;
+                case 2: reg.classList.add("active");
+                        document.getElementById("contenu").style.display = "inline";
+                        contenu.innerHTML = "Your registration will be confirmed";
+                        document.getElementById("pics").style.display = "none";
+
+                        break;
+                case 3: vote.classList.add("active");
+                        contenu.innerHTML = "vote";
+                        break;
+                case 4: cast.classList.add("active");
+                        contenu.innerHTML = "cast";
+                        break;
+                case 5: confirm.classList.add("active");
+                        contenu.innerHTML = "confirm";
+                        break;
+                      
+            }
+            if(i==0)
+        {
+            backBtn.style.display = "none";
+        }
+        else if(i==5)
+        {
+            nextBtn.style.display = "none";
+        }
+        else
+        {
+            backBtn.style.display = "inline-block";
+            nextBtn.style.display = "inline-block";
+        }
+        }
+        function back(){
+            i--;
+            switch(i)
+            {
+                case 0: id.classList.remove("active");
+                        contenu.innerHTML = wlcmContenu;
+                        break;
+                case 1: reg.classList.remove("active");
+                        contenu.innerHTML = document.getElementById("pics");
+                        break;
+                case 2: vote.classList.remove("active");
+                        contenu.innerHTML = "reg";
+                        break;
+                case 3: cast.classList.remove("active");
+                        contenu.innerHTML = "vote";
+                        break;
+                case 4: confirm.classList.remove("active");
+                        contenu.innerHTML = "cast";
+                        break;
+                
+                      
+            }
+            if(i==0)
+        {
+            backBtn.style.display = "none";
+        }
+        else if(i==5)
+        {
+            nextBtn.style.display = "none";
+        }
+        else
+        {
+            backBtn.style.display = "inline-block";
+            nextBtn.style.display = "inline-block";
+        }
+        }
+        
+    </script>
+
+    <div id="pics" style="display: none"> 
+        <center>
+            <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
+            <p id="error-message"></p>
+        </center>
+        
+        <form class="row">
+        <div class="col-md-4">
+        <div class="container2">
+          <div class="app">
+            <video id="camera-stream1"></video>
+            <img id="snap1">
+            <div class="controls">
+              <a href="#" id="delete-photo1" title="Delete Photo" class="disabled"><i class="material-icons">cached</i></a>
+              <a href="#" id="take-photo1" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+            </div>
+            <canvas id="can1"></canvas>
+          </div>
+          </div>
+          <h3>Scan your Face</h3>
+        
+        </div>
+        
+        <div class="col-md-4">
+            <div class="container2">
+              <div class="app">
+                <video id="camera-stream2"></video>
+                <img id="snap2">
+                <div class="controls">
+                  <a href="#" id="delete-photo2" title="Delete Photo" class="disabled"><i class="material-icons">cached</i></a>
+                  <a href="#" id="take-photo2" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+                </div>
+                <canvas id="can2"></canvas>
+              </div>
+              </div>
+              <h3>Scan your front side of your CIN</h3>
+        
+        </div>
+            <div class="col-md-4">
+                <div class="container2">
+                  <div class="app">
+                    <video id="camera-stream3"></video>
+                    <img id="snap3">
+                    <div class="controls">
+                      <a href="#" id="delete-photo3" title="Delete Photo" class="disabled"><i class="material-icons">cached</i></a>
+                      <a href="#" id="take-photo3" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+                    </div>
+                
+                    <canvas id="can3"></canvas>
+                  </div>
+                  </div>
+                  <h3>Scan your back side of your CIN</h3>
+            </div>
+        
+                </form>
+        
+        <center>
+                <input type="button" value="submit" onclick="submit()" class="btn btn-info" id="submitBtn"><br>
+            OR<br>
+        
+              <input type="text" size="50" placeholder="place your hash to skip the identification" style="text-align: center"> 
+            </center>
+             <script src="/static/assets/js/script.js"></script> 
+    </div>
+</body>
+</html>
